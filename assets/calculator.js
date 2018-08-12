@@ -50,6 +50,9 @@ function setOperator(operator, remove) {
         operatorDisplay.textContent = "";
         overwrite = true;
     } else {
+        if (operatorDisplay.textContent != "") {
+            button_equals()
+        }
         operatorDisplay.textContent = operator;
         buffer = parseFloat(display.textContent);
         overwrite = true;
@@ -95,33 +98,33 @@ function button_mr() {
 }
 
 function button_divide() {
-    setOperator("/");
+    setOperator("/", false);
 }
 
 function button_multiply() {
-    setOperator("x");
+    setOperator("x", false);
 }
 
 function button_subtract() {
-    setOperator("-");
+    setOperator("-", false);
 }
 
 function button_add() {
-    setOperator("+");
+    setOperator("+", false);
 }
 
 function button_equals() {
-    if (operatorDisplay.textContent == "/") {
+    if (operatorDisplay.textContent == "/" && !overwrite) {
         display.textContent = String(buffer / parseFloat(display.textContent));
-    } else if (operatorDisplay.textContent == "x") {
+    } else if (operatorDisplay.textContent == "x" && !overwrite) {
         display.textContent = String(buffer * parseFloat(display.textContent));
-    } else if (operatorDisplay.textContent == "+") {
+    } else if (operatorDisplay.textContent == "+" && !overwrite) {
         display.textContent = String(buffer + parseFloat(display.textContent));
-    } else if (operatorDisplay.textContent == "-") {
+    } else if (operatorDisplay.textContent == "-" && !overwrite) {
         display.textContent = String(buffer - parseFloat(display.textContent));
     }
     setOperator("", true);
-    buffer = 0;
+    buffer = parseFloat(display.textContent);
     flash();
 }
 
