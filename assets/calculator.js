@@ -1,10 +1,10 @@
 var buffer = "";
 var memory = 0; //for M button functions
-var last_operation = "";
-overwrite = false;
+overwrite = true;
 
-var display = document.querySelector(".display");
+var display = document.querySelector(".primaryDisplay");
 var buttons = document.querySelectorAll(".button");
+var operatorDisplay = document.querySelector(".operatorDisplay");
 
 function press(button) {
     if (button.textContent == "AC"){
@@ -32,24 +32,34 @@ function press(button) {
     } else if (button.textContent == "=") {
         button_equals();
     } else {
-        if (button.textContent != "." && display.textContent == "0") {
-            display.textContent = "";
-        }
         number(button.textContent);
     }
 }
 
 function flash() {
     display.classList.add("flash");
+    operatorDisplay.classList.add("flash");
     setTimeout(function() {
         display.classList.remove("flash");
-    }, 100);
+        operatorDisplay.classList.remove("flash");
+    }, 50);
+}
+
+function setOperator(operator, remove) {
+    if (remove) {
+        operatorDisplay.textContent = "";
+        overwrite = true;
+    } else {
+        operatorDisplay.textContent = operator;
+        buffer = parseFloat(display.textContent);
+        overwrite = true;
+    }
+    flash();
 }
 
 function button_ac() {
     display.textContent = "0";
-    overwrite = false;
-    flash();
+    setOperator("", true);
 }
 
 function button_del() {
@@ -61,6 +71,7 @@ function button_del() {
 function button_1x() {
     var number = parseFloat(display.textContent);
     display.textContent = String(1 / number);
+    flash();
 }
 
 function button_mc() {
@@ -84,45 +95,32 @@ function button_mr() {
 }
 
 function button_divide() {
-    last_operation = "/";
-    buffer = parseFloat(display.textContent);
-    overwrite = true;
-    flash();
+    setOperator("/");
 }
 
 function button_multiply() {
-    last_operation = "x";
-    buffer = parseFloat(display.textContent);
-    overwrite = true;
-    flash();
+    setOperator("x");
 }
 
 function button_subtract() {
-    last_operation = "-";
-    buffer = parseFloat(display.textContent);
-    overwrite = true;
-    flash();
+    setOperator("-");
 }
 
 function button_add() {
-    last_operation = "+";
-    buffer = parseFloat(display.textContent);
-    overwrite = true;
-    flash();
+    setOperator("+");
 }
 
 function button_equals() {
-    if (last_operation == "/") {
+    if (operatorDisplay.textContent == "/") {
         display.textContent = String(buffer / parseFloat(display.textContent));
-    } else if (last_operation == "x") {
+    } else if (operatorDisplay.textContent == "x") {
         display.textContent = String(buffer * parseFloat(display.textContent));
-    } else if (last_operation == "+") {
+    } else if (operatorDisplay.textContent == "+") {
         display.textContent = String(buffer + parseFloat(display.textContent));
-    } else if (last_operation == "-") {
+    } else if (operatorDisplay.textContent == "-") {
         display.textContent = String(buffer - parseFloat(display.textContent));
     }
-    last_operation = "";
-    overwrite = true;
+    setOperator("", true);
     buffer = 0;
     flash();
 }
@@ -134,6 +132,8 @@ function number(num) { //handles all numbers and period
     } else {
         display.textContent = display.textContent + num;
     }
+    if (display.textContent == ".") {display.textContent = "0.";}
+    flash();
     
 }
 

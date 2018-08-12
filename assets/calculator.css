@@ -44,15 +44,29 @@ body {
   grid-column: span 4;
   border: 2px solid black;
   margin-bottom: 10px;
-  line-height: 50px;
+  line-height: 46px;
   vertical-align: middle;
-  padding-left: 20px;
   background-color: white;
   color: black;
 }
 
+.flexContainer {
+  display: flex;
+}
+
+.primaryDisplay {
+  flex-basis: 90%;
+  padding-left: 20px;
+
+}
+
+.operatorDisplay {
+  flex-basis: 10%;
+
+}
+
 .flash {
-  color: white;
+  color: lightgrey;
 }
 
 .equals {
