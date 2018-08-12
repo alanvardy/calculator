@@ -145,3 +145,48 @@ buttons.forEach( function(button) {
         press(button);
     });
 });
+
+document.onkeyup = function(e) {
+    switch (e.which) {
+        case 49: number('1'); break;
+        case 97: number('1'); break;
+        case 50: number('2'); break;
+        case 98: number('2'); break;
+        case 51: number('3'); break;
+        case 99: number('3'); break;
+        case 52: number('4'); break;
+        case 100: number('4'); break;
+        case 53: number('5'); break;
+        case 101: number('5'); break;
+        case 54: number('6'); break;
+        case 102: number('6'); break;
+        case 55: number('7'); break;
+        case 103: number('7'); break;
+        case 56: number('8'); break;
+        case 104: number('8'); break;
+        case 57: number('9'); break;
+        case 105: number('9'); break;
+        case 48: number('0'); break;
+        case 96: number('0'); break;
+        case 190: number('.'); break;
+        case 110: number('.'); break;
+        case 65: button_ac(); break;
+        case 67: button_ac(); break;
+        case 46: button_del(); break;
+        case 83: button_1x(); break;
+        case 81: button_mc();break;
+        case 87: button_mplus(); break;
+        case 69: button_mminus(); break;
+        case 82: button_mr(); break;
+        case 19: button_divide(); break;
+        case 111: button_divide(); break;
+        case 88: button_multiply(); break;
+        case 106: button_multiply(); break;
+        case 109: button_subtract(); break;
+        case 189: button_subtract(); break;
+        case 107: button_add(); break;
+        case 187: button_add(); break;
+        case 13: button_equals(); break;
+    }
+
+};
