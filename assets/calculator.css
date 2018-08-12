@@ -1,0 +1,92 @@
+body {
+  font-family: monospace;
+  font-family: sans-serif;
+  font-size: 15px;
+  font-family: 'PT Mono', monospace;
+  background-image: url(calculator.jpeg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100% auto;
+  color: white;
+}
+
+.calculator {
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(4, 60px);
+  grid-auto-rows: 60px;
+  border: 1px solid black;
+  padding: 20px;
+  background-color: gainsboro;
+  border-radius: 3%;
+}
+
+.button {
+  border-radius: 25%;
+  border: 2px solid black;
+  text-align: center;
+  vertical-align: middle;
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 50px;
+  background-color: grey;
+  transition-duration: 0.4s;
+  color: white;
+}
+
+.button:hover {
+  opacity: 0.8;
+}
+
+.display {
+  grid-column: span 4;
+  border: 2px solid black;
+  margin-bottom: 10px;
+  line-height: 50px;
+  vertical-align: middle;
+  padding-left: 20px;
+  background-color: white;
+  color: black;
+}
+
+.flash {
+  color: white;
+}
+
+.equals {
+  grid-row: span 2;
+  height: 110px;
+  border-radius: 15%;
+  line-height: 110px;
+}
+
+h1 {
+  text-align: center;
+  margin-top: 5%;
+  text-shadow: 2px 2px grey;
+}
+
+.page {
+  display: flex;
+  justify-content: center;
+}
+
+.green {
+  background-color: darkgreen;
+}
+
+.red {
+  background-color: crimson;
+}
+
+.shadow {
+  -webkit-box-shadow: 7px 7px 5px -4px rgba(0,0,0,0.56);
+-moz-box-shadow: 7px 7px 5px -4px rgba(0,0,0,0.56);
+box-shadow: 7px 7px 5px -4px rgba(0,0,0,0.56);
+}
+
+a {
+  text-decoration: none;
+}
