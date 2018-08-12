@@ -1,5 +1,5 @@
 var buffer = "";
-var memory = 0;
+var memory = 0; //for M button functions
 var last_operation = "";
 overwrite = false;
 
@@ -127,7 +127,7 @@ function button_equals() {
     flash();
 }
 
-function number(num) {
+function number(num) { //handles all numbers and period
     if (overwrite == true) {
         display.textContent = num;
         overwrite = false;
@@ -136,7 +136,6 @@ function number(num) {
     }
     
 }
-
 
 buttons.forEach( function(button) {
     button.addEventListener("click", function() {
