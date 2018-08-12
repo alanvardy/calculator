@@ -48,6 +48,7 @@ function flash() {
 
 function button_ac() {
     display.textContent = "0";
+    overwrite = false;
     flash();
 }
 
@@ -127,7 +128,13 @@ function button_equals() {
 }
 
 function number(num) {
-    display.textContent = display.textContent + num;
+    if (overwrite == true) {
+        display.textContent = num;
+        overwrite = false;
+    } else {
+        display.textContent = display.textContent + num;
+    }
+    
 }
 
 
