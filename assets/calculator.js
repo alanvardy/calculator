@@ -6,7 +6,7 @@ var display = document.querySelector(".primaryDisplay");
 var buttons = document.querySelectorAll(".button");
 var operatorDisplay = document.querySelector(".operatorDisplay");
 
-function press(button) {
+function press(button) { //function routing for both mouse and keyboard input
     switch (button) {
         case "AC": button_ac(); flash("ac"); break;
         case "Del": button_del(); flash("del"); break;
@@ -22,12 +22,9 @@ function press(button) {
         case "=": button_equals(); flash("equals"); break;
         default: number(button); flash("b" + button); break;
         }
-    
-    
-    
 }
 
-function flash(id) {
+function flash(id) { //for screen refresh and button press effects
     id = "#" + id;
     var flashButton = document.querySelector(id);
     display.classList.add("flash");
@@ -40,7 +37,7 @@ function flash(id) {
     }, 75);
 }
 
-function setOperator(operator, remove) {
+function setOperator(operator, remove) { //also routes to equals key
     if (remove) {
         operatorDisplay.textContent = "";
         overwrite = true;
@@ -54,6 +51,7 @@ function setOperator(operator, remove) {
     }
 }
 
+//individual button functions below
 function button_ac() {
     display.textContent = "0";
     setOperator("", true);
@@ -115,7 +113,7 @@ function button_equals() {
     buffer = parseFloat(display.textContent);
 }
 
-function number(num) { //handles all numbers and period
+function number(num) { //handles all digits and period
     if (overwrite == true) {
         display.textContent = num;
         overwrite = false;
@@ -132,7 +130,7 @@ buttons.forEach( function(button) {
     });
 });
 
-document.onkeyup = function(e) {
+document.onkeyup = function(e) { //keyboard functionality
     switch (e.which) {
         case 49: press('1'); break;
         case 97: press('1'); break;
