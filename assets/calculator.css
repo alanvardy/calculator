@@ -85,7 +85,7 @@ body {
   background-image: url(/assets/calculator.jpeg);
   background-repeat: no-repeat;
   background-position: center;
-  background-size: 100% auto;
+  background-size: auto 200%;
 }
 
 .green {
