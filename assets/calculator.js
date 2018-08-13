@@ -254,6 +254,9 @@ document.onkeyup = function (e) { //keyboard functionality
         case 46:
             press("Del");
             break;
+        case 8:
+            press("Del");
+            break;
         case 83:
             press("1/x");
             break;
