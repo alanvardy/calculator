@@ -1,4 +1,4 @@
-var buffer = "";
+var buffer = ""; // for saving numbers when operators are pushed
 var memory = 0; //for M button functions
 overwrite = true;
 
@@ -159,7 +159,11 @@ function number(num) { //handles all digits and period
         display.textContent = num;
         overwrite = false;
     } else {
-        display.textContent = display.textContent + num;
+        if (display.textContent.endsWith(".") && num == ".") {
+            button_del();
+        } else {
+            display.textContent = display.textContent + num;
+        }
     }
     if (display.textContent == ".") {
         display.textContent = "0.";
