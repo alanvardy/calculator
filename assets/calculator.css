@@ -134,3 +134,7 @@ a {
   line-height: 70px;
   background-color: rgb(90, 90, 90);
 }
+
+.black {
+  background-color: black;
+}
