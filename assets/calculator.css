@@ -113,7 +113,12 @@ body {
 }
 
 a {
+  color: white;
   text-decoration: none;
+}
+
+.footer a:hover{
+  text-decoration: underline;
 }
 h1 {
   margin: 0;
